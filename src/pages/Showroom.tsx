@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom'
-
 import './Showroom.css'
+import { getProductsByCollection } from '../data/products'
 
 
 
@@ -47,6 +47,9 @@ export default function Showroom({
 }: ShowroomProps) {
 
   const content = showroomContent[collection]
+
+const collectionProducts = getProductsByCollection(collection)
+
 
   return (
     <div className="showroom">
@@ -110,37 +113,44 @@ export default function Showroom({
 
           </div>
 
-          <div className="showroom-product-grid">
-            {[1, 2, 3].map((item) => (
-              <article
-                className="showroom-product-card"
-                key={item}
-              >
-                <div className="showroom-product-image">
-                  
-<div className="product-placeholder-content">
-  
-
-<span className="product-placeholder-symbol">
-  {content.symbol}
-</span>
-
-
-  <span>YOUR PRODUCT HERE</span>
-</div>
-
-                </div>
-
-                <div className="showroom-product-info">
-                  <h3>Selected Piece {item}</h3>
-                  <span className="showroom-rating">
-                    Rating pending verification
-                  </span>
-                </div>
-              </article>
-            ))}
+         
+<div className="showroom-product-grid">
+  {collectionProducts.map((product) => (
+    <Link
+      to={`/product/${product.id}`}
+      className="showroom-product-card"
+      key={product.id}
+    >
+      <div className="showroom-product-image">
+        {product.images.length > 0 ? (
+          <img
+            src={product.images[0]}
+            alt={product.name}
+            className="showroom-card-photo"
+          />
+        ) : (
+          <div className="product-placeholder-content">
+            <span className="product-placeholder-symbol">
+              {content.symbol}
+            </span>
+            <span>YOUR PRODUCT HERE</span>
           </div>
-        </section>
+        )}
+      </div>
+
+      <div className="showroom-product-info">
+        <h3>{product.name}</h3>
+        <span className="showroom-rating">
+          {product.reviews.rating !== null &&
+          product.reviews.count !== null
+            ? `★ ${product.reviews.rating.toFixed(1)} · ${product.reviews.count} reviews`
+            : 'Rating pending verification'}
+        </span>
+      </div>
+    </Link>
+  ))}
+</div>
+</section>
       </main>
 
       <footer className="showroom-footer">

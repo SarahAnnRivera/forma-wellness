@@ -292,3 +292,21 @@
 .showroom-back:hover {
   opacity: 0.55;
 }
+
+.showroom-product-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.showroom-product-card:hover {
+  transform: translateY(-4px);
+}
+
+.showroom-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
