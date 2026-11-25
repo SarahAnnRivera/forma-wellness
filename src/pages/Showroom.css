@@ -310,3 +310,56 @@
   object-fit: cover;
   display: block;
 }
+
+/* THE FORMA EXPERIENCE */
+
+.showroom-purchasing {
+  max-width: 1000px;
+  margin: 90px auto 0;
+  padding: 65px 30px 25px;
+  border-top: 1px solid #c2c8ce;
+  text-align: center;
+  color: #081A3A;
+}
+
+.purchasing-eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  margin-bottom: 20px;
+}
+
+.showroom-purchasing h2 {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.showroom-purchasing p {
+  max-width: 750px;
+  margin: 0 auto 25px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.showroom-purchasing a {
+  color: #081A3A;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-bottom: 1px solid #c2c8ce;
+  padding-bottom: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.showroom-purchasing a:hover {
+  border-color: #081A3A;
+}
+
+@media (max-width: 600px) {
+  .showroom-purchasing {
+    margin-top: 50px;
+    padding: 45px 20px 55px;
+  }
+}

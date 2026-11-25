@@ -150,13 +150,28 @@ const collectionProducts = getProductsByCollection(collection)
     </Link>
   ))}
 </div>
+<section className="showroom-purchasing">
+  <span className="purchasing-eyebrow">
+    THE FORMA EXPERIENCE
+  </span>
+
+  <h2>Curated by FORMA. Delivered by Our Partners.</h2>
+
+  <p>
+    We select exceptional products and connect you directly
+    with our manufacturing and retail partners. Purchases,
+    delivery arrangements, warranties, and aftercare are
+    handled directly by your chosen seller.
+  </p>
+
+  <Link to="/affiliate-disclosure">
+    Learn more about our partnerships
+  </Link>
+</section>
 </section>
       </main>
 
-      <footer className="showroom-footer">
-        <span>FORMA</span>
-        <span>WELLNESS, BEAUTIFULLY CONSIDERED.</span>
-      </footer>
+  
     </div>
   )
 }

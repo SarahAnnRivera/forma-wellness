@@ -131,6 +131,7 @@ export default function ProductDetail() {
             <p>Reviews pending verification.</p>
           </div>
 
+          
           {product.manufacturerUrl ? (
             <a
               className="product-order-button"
@@ -148,11 +149,11 @@ export default function ProductDetail() {
               Manufacturer Link Coming Soon
             </button>
           )}
-
-          <p className="product-affiliate-note">
-            Orders are completed directly with the manufacturer.
-            FORMA may earn a commission from qualifying purchases.
+<p className="product-affiliate-note">
+            Purchases are completed directly with our manufacturing or retail partners. FORMA may earn a commission if you purchase through our affiliate links.
           </p>
+
+          
         </section>
       </main>
     </div>

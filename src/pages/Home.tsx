@@ -103,16 +103,11 @@ className="collection-portal"
         <section className="philosophy" id="philosophy">
           <p className="section-label">THE FORMA PHILOSOPHY</p>
           <p>
-            Fewer choices. Better considered. A private wellness space, entirely
-            your own.
+            Rooted in residential design and renovation, FORMA curates exceptional home wellness equipment with an emphasis on performance, craftsmanship, and seamless integration. Our selections are guided by how beautifully and practically they fit into the home.
           </p>
         </section>
       </main>
 
-      <footer className="site-footer">
-        <span>FORMA</span>
-        <span>WELLNESS, BEAUTIFULLY CONSIDERED.</span>
-      </footer>
     </div>
   );
 }
