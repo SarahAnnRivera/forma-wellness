@@ -7,24 +7,6 @@ import { useParams } from 'react-router-dom'
 import { getProductById } from '../data/products'
 
 
-const product = {
-  collection: 'RESTORE',
-  category: 'SAUNAS',
-  name: 'Selected Product',
-  manufacturer: 'Manufacturer Name',
-  price: 'Price pending verification',
-  description:
-    'Product description will be added following manufacturer verification.',
-  images: [] as string[],
-  specifications: [
-    { label: 'Dimensions', value: 'To be confirmed' },
-    { label: 'Materials', value: 'To be confirmed' },
-    { label: 'Installation', value: 'To be confirmed' },
-    { label: 'Warranty', value: 'To be confirmed' },
-  ],
-  manufacturerUrl: '',
-}
-
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>()
