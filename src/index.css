@@ -1,5 +1,8 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap');
+
+/* =========================================
+   FORMA — GLOBAL STYLES
+   ========================================= */
 
 :root {
   font-family: 'Manrope', sans-serif;
@@ -7,14 +10,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 
-  /* FORMA brand palette */
   --sapphire: #081A3A;
   --emerald: #09251F;
   --platinum: #E1E5EA;
   --gallery-white: #FAFAF8;
   --soft-black: #252A28;
 
-  /* Easy to change later */
   --brand: var(--sapphire);
 
   color: var(--soft-black);
@@ -51,20 +52,33 @@ button {
   cursor: pointer;
 }
 
-
-/* FORMA homepage */
+/* =========================================
+   HOMEPAGE SHELL
+   ========================================= */
 
 .site-shell {
   min-height: 100vh;
   background: var(--brand);
   color: var(--platinum);
+  display: flex;
+  flex-direction: column;
 }
 
-.site-header {
+.site-shell main {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 28px 6%;
+  padding: 18px 5%;
 }
 
 .header-logo {
@@ -73,8 +87,18 @@ button {
   letter-spacing: 0.32em;
 }
 
+.header-descriptor {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--platinum);
+  opacity: 0.8;
+}
+
 .main-nav {
   display: flex;
+  justify-self: end;
   gap: 34px;
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -83,15 +107,21 @@ button {
 
 .main-nav a {
   opacity: 0.8;
+  transition: opacity 0.25s ease;
 }
 
 .main-nav a:hover {
   opacity: 1;
 }
 
+/* =========================================
+   HERO
+   ========================================= */
+
 .home-hero {
-  min-height: 55vh;
-  padding: 90px 20px 55px;
+  min-height: 0;
+  padding: 0 20px 12px;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,9 +138,9 @@ button {
 
 .home-hero h1 {
   font-weight: 300;
-  font-size: clamp(70px, 12vw, 165px);
+  font-size: clamp(58px, 7.5vw, 105px);
   letter-spacing: 0.2em;
-  margin: 12px 0 22px 0.2em;
+  margin: 8px 0 14px 0.2em;
   line-height: 1.15;
 }
 
@@ -122,227 +152,62 @@ button {
 }
 
 .hero-tagline {
-  font-size: clamp(16px, 2vw, 22px);
+  font-size: 17px;
   font-weight: 300;
   letter-spacing: 0.04em;
-  margin-top: 30px;
+  margin: 15px 0 0;
 }
 
 .hero-intro {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 2;
   max-width: 420px;
   opacity: 0.7;
-  margin-top: 12px;
+  margin: 9px 0 0;
 }
 
+/* =========================================
+   COLLECTIONS
+   ========================================= */
+
 .collections-section {
-  padding: 50px 6% 100px;
+  padding: 8px 5% 25px;
   text-align: center;
+  flex: 1;
 }
 
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 38px;
+  grid-template-columns: repeat(3, minmax(0, 250px));
+  justify-content: center;
+  gap: clamp(35px, 5vw, 85px);
+  margin: 22px auto 0;
+  max-width: 1100px;
 }
 
 .collection-portal {
   appearance: none;
-  border: 1px solid rgba(225, 229, 234, 0.25);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  border: none;
   background: transparent;
   color: inherit;
-  min-height: 310px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  transition: background 0.25s ease, border-color 0.25s ease;
-}
-
-.collection-portal:hover,
-.collection-portal:focus-visible,
-.portal-active {
-  background: rgba(225, 229, 234, 0.07);
-  border-color: rgba(225, 229, 234, 0.65);
-}
-
-.portal-number {
-  align-self: flex-start;
-  font-size: 10px;
-  opacity: 0.55;
-}
-
-.portal-symbol {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 1;
-}
-
-.portal-title {
-  font-size: 23px;
-  letter-spacing: 0.2em;
-  font-weight: 400;
-}
-
-.portal-description {
-  font-size: 11px;
-  opacity: 0.7;
-}
-
-.portal-action {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-}
-
-.collection-feedback {
-  font-size: 12px;
-  line-height: 1.8;
-  margin-top: 28px;
-}
-
-.philosophy {
-  padding: 40px 24px;
-  text-align: center;
-  border-top: 1px solid rgba(225, 229, 234, 0.15);
-  max-width: 1000px;
-margin: 16px auto 0;
-font-size: 15px;
-line-height: 1.8;
-}
-
-.philosophy > p:last-child {
-  max-width: 550px;
-  margin: 25px auto 0;
-  font-size: clamp(18px, 2.5vw, 28px);
-  font-weight: 300;
-  line-height: 1.7;
-}
-
-.site-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 30px 6%;
-  border-top: 1px solid rgba(225, 229, 234, 0.15);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  opacity: 0.65;
-}
-
-
-/* Compact, single-screen homepage */
-
-.site-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.site-shell main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.site-header {
-  padding: 18px 5%;
-}
-
-.home-hero {
-  min-height: 0;
-  padding: 22px 20px 12px;
-  flex: 0 0 auto;
-}
-
-.home-hero h1 {
-  font-size: clamp(58px, 8vw, 112px);
-  margin: 8px 0 14px 0.2em;
-}
-
-.hero-tagline {
-  margin: 15px 0 0;
-  font-size: 17px;
-}
-
-.hero-intro {
-  margin: 9px 0 0;
-  font-size: 11px;
-}
-
-.collections-section {
-  padding: 12px 5% 25px;
-  flex: 1;
-}
-
-.collection-grid {
-  margin-top: 20px;
-  gap: 14px;
-}
-
-.collection-portal {
-  min-height: 185px;
-  padding: 15px;
-}
-
-.portal-symbol {
-  font-size: 35px;
-}
-
-.portal-title {
-  font-size: 19px;
-}
-
-.philosophy {
-  padding: 15px 20px;
-}
-
-.philosophy > p:last-child {
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-.site-footer {
-  padding: 12px 5%;
-}
-
-
-/* FORMA Art Deco portal frames */
-
-.collection-grid {
-  gap: 34px;
-  max-width: 1380px;
-  margin: 28px auto 0;
-}
-
-.collection-portal {
-  position: relative;
-  border: none;
-  background: transparent;
-  min-height: 190px;
-  padding: 24px 28px;
+  justify-content: flex-start;
+  gap: 0;
   isolation: isolate;
+  transition: background 0.25s ease,
+    border-color 0.25s ease;
 }
 
-
-/* Refined Art Deco portal frames */
-
-.collection-grid {
-  gap: 34px;
-  max-width: 1380px;
-  margin: 28px auto 0;
-}
-
-.collection-portal {
-  position: relative;
-  border: none;
-  background: transparent;
-  min-height: 190px;
-  padding: 24px 28px;
-  isolation: isolate;
-}
+/* =========================================
+   ART DECO ARCHITECTURAL FRAMES
+   ========================================= */
 
 .collection-portal::before,
 .collection-portal::after {
@@ -372,107 +237,23 @@ line-height: 1.8;
   background: rgba(225, 229, 234, 0.035);
 }
 
-@media (max-width: 700px) {
-  .collection-grid {
-    gap: 20px;
-  }
-}
-
-
-@media (min-width: 701px) {
-  .site-shell {
-    min-height: 100vh;
-  }
-
-  .home-hero {
-    min-height: 0;
-  }
-
-  .collection-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-
-@media (max-width: 700px) {
-  .site-header {
-    padding: 24px;
-  }
-
-  .main-nav {
-    gap: 15px;
-    font-size: 9px;
-  }
-
-  .home-hero {
-    min-height: 48vh;
-    padding: 75px 20px 40px;
-  }
-
-  .collection-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .collection-portal {
-    min-height: 250px;
-  }
-
-  .site-footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-/* Square gallery portals */
-
-.collection-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 250px));
-  justify-content: center;
-  gap: clamp(35px, 5vw, 85px);
-  margin: 22px auto 0;
-  max-width: 1100px;
-}
-
-.collection-portal {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  min-height: 0;
-  padding: 25px;
-}
-
-@media (max-width: 850px) {
-  .collection-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-  }
-}
-
-@media (max-width: 600px) {
-  .collection-grid {
-    grid-template-columns: minmax(0, 280px);
-    gap: 24px;
-  }
-}
-
-/* Refine portal content positioning */
-
-.collection-portal {
-  justify-content: flex-start;
-  gap: 0;
-}
+/* =========================================
+   PORTAL CONTENT
+   ========================================= */
 
 .portal-number {
   position: absolute;
   top: 32px;
   left: 42px;
+  align-self: flex-start;
   font-size: 9px;
   opacity: 0.4;
 }
 
 .portal-symbol {
   font-size: 27px;
+  font-weight: 300;
+  line-height: 1;
   margin-top: 35px;
   margin-bottom: 12px;
   opacity: 0.75;
@@ -481,6 +262,7 @@ line-height: 1.8;
 .portal-title {
   font-size: 21px;
   letter-spacing: 0.22em;
+  font-weight: 400;
   margin-bottom: 12px;
 }
 
@@ -493,55 +275,204 @@ line-height: 1.8;
   margin-top: auto;
   margin-bottom: 14px;
   font-size: 10px;
+  letter-spacing: 0.2em;
   opacity: 0.85;
 }
 
-/* Refine homepage vertical balance */
-
-.home-hero {
-  padding-top: 0;
-  padding-bottom: 12px;
+.collection-feedback {
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 28px;
 }
+
+/* =========================================
+   FORMA PHILOSOPHY
+   ========================================= */
+
+.philosophy {
+  padding: 15px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(225, 229, 234, 0.15);
+  max-width: 1000px;
+  margin: 16px auto 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.philosophy > p:last-child {
+  max-width: 550px;
+  margin: 8px auto 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 5%;
+  border-top: 1px solid rgba(225, 229, 234, 0.15);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  opacity: 0.65;
+}
+
+/* =========================================
+   HOMEPAGE ENTRANCE ANIMATIONS
+   ========================================= */
+
+/* =========================================
+   HOMEPAGE ENTRANCE ANIMATIONS
+   ========================================= */
+
+@keyframes forma-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: var(--entrance-opacity, 1);
+  }
+}
+
+@keyframes forma-slide-in {
+  from {
+    opacity: 0;
+    translate: -65px 0;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Wordmark */
 
 .home-hero h1 {
-  font-size: clamp(58px, 7.5vw, 105px);
+  animation: forma-fade-in 2s ease both;
 }
 
-.collections-section {
-  padding-top: 8px;
+/* Architectural divider */
+
+.hero-rule {
+  --entrance-opacity: 0.65;
+  animation: forma-fade-in 1.5s ease 0.4s both;
 }
 
-/* Centered header descriptor */
+/* Tagline */
 
-.site-header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+.hero-tagline {
+  animation: forma-fade-in 1.6s ease 0.7s both;
 }
 
-.header-descriptor {
-  font-size: 10px;
-  letter-spacing: 0.35em;
-  font-weight: 500;
-  white-space: nowrap;
-  color: var(--platinum);
-  opacity: 0.8;
+/* Introduction */
+
+.hero-intro {
+  --entrance-opacity: 0.7;
+  animation: forma-fade-in 1.6s ease 1s both;
 }
 
-.main-nav {
-  justify-self: end;
+/* Collection heading */
+
+.collections-section > .section-label {
+  animation: forma-fade-in 1.4s ease 1.2s both;
 }
 
-.home-hero {
-  padding-top: 0;
+/* Staggered collection entrance */
+
+.collection-portal {
+  animation: forma-slide-in 1.8s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* MOVE */
+
+.collection-portal:nth-child(1) {
+  animation-delay: 1.3s;
+}
+
+/* RESTORE */
+
+.collection-portal:nth-child(2) {
+  animation-delay: 1.7s;
+}
+
+/* REFRESH */
+
+.collection-portal:nth-child(3) {
+  animation-delay: 2.1s;
+}
+
+/* Philosophy */
+
+.philosophy {
+  animation: forma-fade-in 1.8s ease 2.3s both;
+}
+
+/* =========================================
+   RESPONSIVE LAYOUT
+   ========================================= */
+
+@media (max-width: 850px) {
+  .collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
 }
 
 @media (max-width: 700px) {
   .site-header {
+    padding: 24px;
     grid-template-columns: 1fr auto;
   }
 
   .header-descriptor {
     display: none;
+  }
+
+  .main-nav {
+    gap: 15px;
+    font-size: 9px;
+  }
+
+  .home-hero {
+    min-height: 48vh;
+    padding: 0 20px 12px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .collection-grid {
+    grid-template-columns: minmax(0, 280px);
+    gap: 24px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero h1,
+  .hero-rule,
+  .hero-tagline,
+  .hero-intro,
+  .collections-section > .section-label,
+  .collection-portal,
+  .philosophy {
+    animation: none;
+    translate: none;
   }
 }
